@@ -1,0 +1,37 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.button {
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--color-text-muted);
+  transition: all 0.15s ease;
+}
+
+.frontend.active {
+  background: var(--color-frontend);
+  color: #000;
+  border-color: var(--color-frontend);
+}
+
+.cgi.active {
+  background: var(--color-cgi);
+  color: var(--color-cgi-text-on);
+  border-color: var(--color-cgi);
+}
+
+.button:hover:not(.active) {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}

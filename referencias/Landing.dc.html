@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #08080A; }
+  </style>
+</helmet>
+
+<div style="position: relative; width: 100%; min-height: 100vh; background: #08080A; font-family: 'Space Grotesk', sans-serif; color: #EDEDEF;">
+
+  <sc-if value="{{ showA }}" hint-placeholder-val="{{ true }}">
+  <section data-screen-label="Landing — Variant A" style="position: relative; width: 100%; min-height: 100vh; overflow: hidden; background: #08080A; font-family: 'Space Grotesk', sans-serif; color: #EDEDEF;">
+
+    <div style="position: absolute; inset: 0; background: radial-gradient(640px 640px at 50% 47%, rgba(255,42,69,0.16), transparent 72%);"></div>
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px); background-size: 66px 66px; -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 82%); mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 82%);"></div>
+
+    <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 520px; height: 520px; display: flex; align-items: center; justify-content: center;">
+      <div style="position: absolute; width: 470px; height: 470px; border-radius: 50%; border: 2px solid #FF2A45; box-shadow: 0 0 120px rgba(255,42,69,0.50), 0 0 40px rgba(255,42,69,0.40), inset 0 0 80px rgba(255,42,69,0.20);"></div>
+      <div style="position: absolute; bottom: -10px; width: 282px; height: 430px; border-radius: 141px 141px 18px 18px; background: repeating-linear-gradient(218deg, #14141A 0 13px, #0E0E13 13px 26px); border: 1px solid rgba(255,255,255,0.07); overflow: hidden;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(8,8,10,0.85) 100%);"></div>
+        <div style="position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: #6E6E78;">DROP HERO RENDER</div>
+      </div>
+    </div>
+
+    <div style="position: absolute; top: 38px; left: 48px; display: flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2.5px; color: #B7B7BF;">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: #FF2A45; box-shadow: 0 0 12px #FF2A45;"></span>
+      AVAILABLE FOR WORK
+    </div>
+
+    <div style="position: absolute; top: 30px; right: 48px; text-align: right; line-height: 0.96;">
+      <div style="font-size: 38px; font-weight: 700; letter-spacing: 1px; color: #EDEDEF;">ALEIX</div>
+      <div style="font-size: 38px; font-weight: 700; letter-spacing: 1px; color: #FF2A45; text-shadow: 0 0 26px rgba(255,42,69,0.45);">GARCIA</div>
+    </div>
+
+    <a href="Front-End Work.dc.html" style="position: absolute; left: 48px; top: 50%; transform: translateY(-50%); width: 210px; text-decoration: none; color: inherit; padding: 22px 22px 22px 22px; border-left: 2px solid rgba(255,42,69,0.35); transition: border-color .3s ease, transform .3s ease;" style-hover="border-left: 2px solid #FF2A45; transform: translateY(-50%) translateX(6px);">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF2A45; letter-spacing: 2px;">01</div>
+      <div style="font-size: 26px; font-weight: 600; margin-top: 6px; line-height: 1.05;">Front-End<br>Development</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #8A8A93; letter-spacing: 1.5px; margin-top: 12px;">REACT · THREE.JS · WEBGL</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #EDEDEF; letter-spacing: 2px; margin-top: 16px;">ENTER →</div>
+    </a>
+
+    <a href="3D Environments.dc.html" style="position: absolute; right: 48px; top: 50%; transform: translateY(-50%); width: 210px; text-align: right; text-decoration: none; color: inherit; padding: 22px 22px 22px 22px; border-right: 2px solid rgba(31,224,208,0.35); transition: border-color .3s ease, transform .3s ease;" style-hover="border-right: 2px solid #1FE0D0; transform: translateY(-50%) translateX(-6px);">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1FE0D0; letter-spacing: 2px;">02</div>
+      <div style="font-size: 26px; font-weight: 600; margin-top: 6px; line-height: 1.05;">3D / CGI<br>Environments</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #8A8A93; letter-spacing: 1.5px; margin-top: 12px;">BLENDER · HOUDINI · UE5</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #EDEDEF; letter-spacing: 2px; margin-top: 16px;">ENTER →</div>
+    </a>
+
+    <div style="position: absolute; bottom: 38px; left: 48px;">
+      <div style="font-size: 19px; font-weight: 600; color: #EDEDEF;">Front-End Developer</div>
+      <div style="font-size: 19px; font-weight: 500; color: #8A8A93;">&amp; 3D Environment Generalist</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; color: #6E6E78; margin-top: 10px;">FROM <span style="color: #FF2A45;">ES</span></div>
+    </div>
+
+    <div style="position: absolute; bottom: 38px; right: 48px; display: flex; gap: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px;">
+      <a href="https://github.com/aleixgarciagispert" target="_blank" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #FF2A45;">GITHUB</a>
+      <a href="#" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #FF2A45;">LINKEDIN</a>
+      <a href="#" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #FF2A45;">ARTSTATION</a>
+      <a href="mailto:aleix@example.com" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #FF2A45;">EMAIL</a>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ showB }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Landing — Variant B" style="position: relative; display: flex; width: 100%; min-height: 100vh; overflow: hidden; background: #08080A; font-family: 'Space Grotesk', sans-serif; color: #EDEDEF;">
+
+    <a href="Front-End Work.dc.html" style="position: relative; flex: 1; text-decoration: none; color: inherit; overflow: hidden; border-right: 1px solid rgba(255,255,255,0.06); transition: background .4s ease;" style-hover="background: rgba(255,42,69,0.05);">
+      <div style="position: absolute; inset: 0; background: radial-gradient(700px 500px at 30% 95%, rgba(255,42,69,0.20), transparent 70%);"></div>
+      <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,42,69,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,42,69,0.05) 1px, transparent 1px); background-size: 40px 40px; -webkit-mask-image: linear-gradient(180deg, transparent, #000); mask-image: linear-gradient(180deg, transparent, #000);"></div>
+      <div style="position: absolute; right: 6%; top: 30%; font-size: 280px; font-weight: 700; color: rgba(255,42,69,0.06); line-height: 1; user-select: none;">&lt;/&gt;</div>
+      <div style="position: absolute; left: 64px; bottom: 88px; right: 64px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF2A45; letter-spacing: 3px;">01</div>
+        <div style="font-size: clamp(34px, 4.6vw, 60px); font-weight: 700; line-height: 0.98; margin-top: 14px;">FRONT-END<br>DEVELOPMENT</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8A93; letter-spacing: 2px; margin-top: 20px;">REACT · THREE.JS · TYPESCRIPT · WEBGL</div>
+        <div style="display: inline-flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #EDEDEF; letter-spacing: 2px; margin-top: 28px; padding-bottom: 6px; border-bottom: 2px solid #FF2A45;">ENTER PORTFOLIO →</div>
+      </div>
+    </a>
+
+    <a href="3D Environments.dc.html" style="position: relative; flex: 1; text-decoration: none; color: inherit; overflow: hidden; text-align: right; transition: background .4s ease;" style-hover="background: rgba(31,224,208,0.05);">
+      <div style="position: absolute; inset: 0; background: radial-gradient(700px 500px at 70% 95%, rgba(31,224,208,0.18), transparent 70%);"></div>
+      <div style="position: absolute; inset: 0; background-image: repeating-radial-gradient(circle at 70% 100%, rgba(31,224,208,0.06) 0 1px, transparent 1px 46px); -webkit-mask-image: linear-gradient(180deg, transparent, #000); mask-image: linear-gradient(180deg, transparent, #000);"></div>
+      <div style="position: absolute; left: 6%; top: 30%; font-size: 260px; font-weight: 700; color: rgba(31,224,208,0.06); line-height: 1; user-select: none;">◇</div>
+      <div style="position: absolute; right: 64px; bottom: 88px; left: 64px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #1FE0D0; letter-spacing: 3px;">02</div>
+        <div style="font-size: clamp(34px, 4.6vw, 60px); font-weight: 700; line-height: 0.98; margin-top: 14px;">3D / CGI<br>ENVIRONMENTS</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A8A93; letter-spacing: 2px; margin-top: 20px;">BLENDER · HOUDINI · UNREAL ENGINE 5</div>
+        <div style="display: inline-flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #EDEDEF; letter-spacing: 2px; margin-top: 28px; padding-bottom: 6px; border-bottom: 2px solid #1FE0D0;">ENTER PORTFOLIO →</div>
+      </div>
+    </a>
+
+    <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.18) 30%, rgba(255,255,255,0.18) 70%, transparent); pointer-events: none;"></div>
+
+    <div style="position: absolute; left: 50%; top: 40px; transform: translateX(-50%); text-align: center; pointer-events: none;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 4px; color: #6E6E78;">PORTFOLIO — 2026</div>
+      <div style="font-size: 22px; font-weight: 700; letter-spacing: 6px; margin-top: 8px;">ALEIX GARCIA</div>
+    </div>
+
+    <div style="position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); text-align: center; pointer-events: none;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; color: #8A8A93;">FRONT-END DEVELOPER &amp; 3D ENVIRONMENT GENERALIST · FROM ES</div>
+    </div>
+  </section>
+  </sc-if>
+
+  <div style="position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 50; display: flex; align-items: center; gap: 4px; padding: 6px; border-radius: 999px; background: rgba(16,16,20,0.82); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(10px); font-family: 'JetBrains Mono', monospace;">
+    <button onClick="{{ pickA }}" style="border: none; cursor: pointer; padding: 8px 16px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; transition: all .25s ease; background: {{ aBg }}; color: {{ aFg }};">A · FAITHFUL</button>
+    <button onClick="{{ pickB }}" style="border: none; cursor: pointer; padding: 8px 16px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; transition: all .25s ease; background: {{ bBg }}; color: {{ bFg }};">B · DUALITY</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { variant: 'A' };
+  renderVals() {
+    const v = this.state.variant;
+    const active = '#EDEDEF';
+    const activeBg = 'rgba(255,255,255,0.12)';
+    const idle = '#7A7A84';
+    return {
+      showA: v === 'A',
+      showB: v === 'B',
+      aBg: v === 'A' ? activeBg : 'transparent',
+      aFg: v === 'A' ? active : idle,
+      bBg: v === 'B' ? activeBg : 'transparent',
+      bFg: v === 'B' ? active : idle,
+      pickA: () => this.setState({ variant: 'A' }),
+      pickB: () => this.setState({ variant: 'B' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

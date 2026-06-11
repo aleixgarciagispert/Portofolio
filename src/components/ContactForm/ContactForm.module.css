@@ -1,0 +1,74 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 480px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+}
+
+.frontend .field input:focus,
+.frontend .field textarea:focus {
+  border-color: rgba(255, 42, 69, 0.5);
+}
+
+.cgi .field input:focus,
+.cgi .field textarea:focus {
+  border-color: rgba(31, 224, 208, 0.5);
+}
+
+.submit {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.frontend .submit {
+  background: var(--color-frontend);
+  color: #0a0a0c;
+}
+
+.cgi .submit {
+  background: var(--color-cgi);
+  color: var(--color-cgi-text-on);
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+}

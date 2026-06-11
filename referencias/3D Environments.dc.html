@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #08080A; }
+    ::selection { background: rgba(31,224,208,0.3); }
+  </style>
+</helmet>
+
+<div data-screen-label="3D Environments" style="position: relative; width: 100%; min-height: 100vh; background: #08080A; font-family: 'Space Grotesk', sans-serif; color: #EDEDEF;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; height: 520px; background: radial-gradient(900px 460px at 50% -120px, rgba(31,224,208,0.14), transparent 70%); pointer-events: none;"></div>
+
+  <nav style="position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: rgba(8,8,10,0.72); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <a href="Landing.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #B7B7BF; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px; transition: color .25s ease;" style-hover="color: #1FE0D0;">← INDEX</a>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: #1FE0D0; box-shadow: 0 0 10px #1FE0D0;"></span>
+      <span style="font-weight: 700; letter-spacing: 2px; font-size: 14px;">ALEIX GARCIA</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 18px; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px;">
+      <a href="Front-End Work.dc.html" style="color: #7A7A84; text-decoration: none; transition: color .25s ease;" style-hover="color: #FF2A45;">← FRONT-END</a>
+      <span style="color: #1FE0D0;">3D / CGI</span>
+    </div>
+  </nav>
+
+  <main style="max-width: 1180px; margin: 0 auto; padding: 72px 40px 40px;">
+    <header style="margin-bottom: 54px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 3px; color: #1FE0D0;">02 — SELECTED WORK</div>
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 18px;">
+        <h1 style="margin: 0; font-size: clamp(40px, 6vw, 76px); font-weight: 700; line-height: 0.98; letter-spacing: -1px;">3D / CGI<br>Environments</h1>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px; color: #8A8A93; text-align: right; line-height: 1.9;">
+          <div>06 PROJECTS</div>
+          <div>2021 — 2026</div>
+        </div>
+      </div>
+      <p style="max-width: 560px; margin: 22px 0 0; font-size: 17px; line-height: 1.55; color: #9A9AA3;">Real-time and rendered environments — worldbuilding, lookdev, lighting and atmosphere for games, film and immersive experiences.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
+          <button onClick="{{ f.onClick }}" style="border: 1px solid {{ f.border }}; cursor: pointer; padding: 9px 18px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 1px; background: {{ f.bg }}; color: {{ f.color }}; transition: all .2s ease;">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </header>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 26px;">
+      <sc-for list="{{ cards }}" as="card" hint-placeholder-count="6">
+        <a href="#" style="grid-column: {{ card.span }}; display: flex; flex-direction: column; text-decoration: none; color: inherit; background: #0C0C10; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;" style-hover="transform: translateY(-6px); border-color: rgba(31,224,208,0.5); box-shadow: 0 24px 60px rgba(31,224,208,0.14);">
+          <div style="position: relative; aspect-ratio: {{ card.ratio }}; background: repeating-linear-gradient(135deg, #15151B 0 12px, #101015 12px 24px); border-bottom: 1px solid rgba(255,255,255,0.06);">
+            <div style="position: absolute; top: 14px; left: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px; color: #1FE0D0;">{{ card.n }}</div>
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; color: #5A5A64;">RENDER / STILL</div>
+          </div>
+          <div style="padding: 22px 22px 24px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+              <div style="font-size: 21px; font-weight: 600; color: #E6E6EA;">Project Title</div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6E6E78;">{{ card.year }}</div>
+            </div>
+            <div style="font-size: 14.5px; line-height: 1.5; color: #82828B; margin-top: 8px;">Short project description goes here — replace with your environment breakdown.</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 1px; color: #1FE0D0; margin-top: 16px;">{{ card.tags }}</div>
+          </div>
+        </a>
+      </sc-for>
+
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 220px; gap: 10px; border: 1px dashed rgba(255,255,255,0.14); border-radius: 16px; color: #5A5A64; transition: border-color .3s ease, color .3s ease; cursor: pointer;" style-hover="border-color: rgba(31,224,208,0.5); color: #1FE0D0;">
+        <div style="font-size: 30px; font-weight: 300; line-height: 1;">+</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px;">ADD PROJECT</div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top: 1px solid rgba(255,255,255,0.06); margin-top: 40px; padding: 60px 40px 70px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 2px; color: #1FE0D0;">GET IN TOUCH</div>
+        <a href="mailto:aleix@example.com" style="display: inline-block; margin-top: 14px; font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: #EDEDEF; text-decoration: none; letter-spacing: -0.5px; transition: color .25s ease;" style-hover="color: #1FE0D0;">Let's build worlds →</a>
+      </div>
+      <div style="display: flex; gap: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1.5px;">
+        <a href="https://github.com/aleixgarciagispert" target="_blank" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #1FE0D0;">GITHUB</a>
+        <a href="#" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #1FE0D0;">LINKEDIN</a>
+        <a href="#" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #1FE0D0;">ARTSTATION</a>
+        <a href="mailto:aleix@example.com" style="color: #B7B7BF; text-decoration: none; transition: color .25s ease;" style-hover="color: #1FE0D0;">EMAIL</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 0 };
+  renderVals() {
+    const labels = ['ALL', 'ENVIRONMENTS', 'LOOKDEV', 'LIGHTING', 'REAL-TIME'];
+    const filters = labels.map((label, i) => {
+      const on = this.state.active === i;
+      return {
+        label,
+        onClick: () => this.setState({ active: i }),
+        bg: on ? '#1FE0D0' : 'transparent',
+        color: on ? '#06201E' : '#9A9AA3',
+        border: on ? '#1FE0D0' : 'rgba(255,255,255,0.14)',
+      };
+    });
+    const cards = [
+      { n: '01', year: '2026', ratio: '21 / 9', span: 'span 2', tags: 'UE5 · HOUDINI · MEGASCANS' },
+      { n: '02', year: '2025', ratio: '16 / 9', span: 'auto', tags: 'BLENDER · CYCLES' },
+      { n: '03', year: '2025', ratio: '16 / 9', span: 'auto', tags: 'HOUDINI · KARMA' },
+      { n: '04', year: '2024', ratio: '16 / 9', span: 'auto', tags: 'UE5 · NIAGARA' },
+      { n: '05', year: '2023', ratio: '16 / 9', span: 'auto', tags: 'SUBSTANCE · BLENDER' },
+    ];
+    return { filters, cards };
+  }
+}
+</script>
+</body>
+</html>
