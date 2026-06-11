@@ -3,11 +3,28 @@ import { siteConfig } from '../data/site';
 import Logo from '../components/Logo';
 import StaggeredMenu from '../components/StaggeredMenu';
 import SocialLinks from '../components/SocialLinks';
+import FaultyTerminal from '../components/FaultyTerminal';
 import styles from './SiteLayout.module.css';
 
 export default function SiteLayout() {
   return (
     <div className={styles.shell}>
+      <div className={styles.terminalBg} aria-hidden="true">
+        <FaultyTerminal
+          scale={1.8}
+          gridMul={[2, 1]}
+          digitSize={1.2}
+          timeScale={0.25}
+          scanlineIntensity={0.4}
+          glitchAmount={0.4}
+          flickerAmount={0.3}
+          noiseAmp={0.6}
+          curvature={0}
+          tint="#ff003c"
+          mouseReact={false}
+          brightness={0.12}
+        />
+      </div>
       <header className={styles.header}>
         <Logo />
       </header>
