@@ -1,4 +1,4 @@
-import { frontendProjects } from '../data/site';
+import { frontendProjects } from '../data/frontendProjects';
 import PortfolioPageLayout from './PortfolioPageLayout';
 
 export default function FrontendPortfolioPage() {

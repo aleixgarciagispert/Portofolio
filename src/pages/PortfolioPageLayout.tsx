@@ -3,8 +3,7 @@ import type { PortfolioTheme, Project } from '../types';
 import PortfolioHeader from '../components/PortfolioHeader';
 import ProjectCard from '../components/ProjectCard';
 import PortfolioFooter from '../components/PortfolioFooter';
-import { portfolioSections } from '../data/site';
-import styles from './PortfolioPageLayout.module.css';
+import { portfolioSections } from '../data/portfolioSections';
 
 interface PortfolioPageLayoutProps {
   theme: PortfolioTheme;
@@ -17,13 +16,11 @@ export default function PortfolioPageLayout({ theme, projects }: PortfolioPageLa
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'ALL') return projects;
-    return projects.filter((project) => project.category === activeFilter);
+    return projects.filter((p) => p.category === activeFilter);
   }, [projects, activeFilter]);
 
-  const accentClass = theme === 'frontend' ? styles.frontend : styles.cgi;
-
   return (
-    <div className={`${styles.page} ${accentClass} theme-${theme}`}>
+    <div className={`w-full max-w-[var(--max-width)] mx-auto pb-6 theme-${theme}`}>
       <PortfolioHeader
         section={section}
         theme={theme}
@@ -31,7 +28,10 @@ export default function PortfolioPageLayout({ theme, projects }: PortfolioPageLa
         onFilterChange={setActiveFilter}
       />
 
-      <section className={styles.grid} aria-label="Project gallery">
+      <section
+        className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[280px] gap-5 mt-2"
+        aria-label="Project gallery"
+      >
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} theme={theme} />
         ))}

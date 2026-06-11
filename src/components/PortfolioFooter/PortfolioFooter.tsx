@@ -1,6 +1,5 @@
 import type { PortfolioTheme } from '../../types';
-import { siteConfig } from '../../data/site';
-import styles from './PortfolioFooter.module.css';
+import { siteConfig } from '../../data/siteConfig';
 
 interface PortfolioFooterProps {
   theme: PortfolioTheme;
@@ -8,12 +7,19 @@ interface PortfolioFooterProps {
 }
 
 export default function PortfolioFooter({ theme, contactCta }: PortfolioFooterProps) {
-  const accentClass = theme === 'frontend' ? styles.frontend : styles.cgi;
+  const isFrontend = theme === 'frontend';
+  const labelColor = isFrontend ? 'text-frontend' : 'text-cgi';
+  const ctaHover = isFrontend ? 'hover:text-frontend' : 'hover:text-cgi';
 
   return (
-    <footer className={`${styles.footer} ${accentClass}`}>
-      <div className={styles.label}>Get in touch</div>
-      <a href={`mailto:${siteConfig.email}`} className={styles.cta}>
+    <footer className="mt-12 pt-8 border-t border-border">
+      <div className={`font-mono text-[11px] tracking-[2px] uppercase ${labelColor}`}>
+        Get in touch
+      </div>
+      <a
+        href={`mailto:${siteConfig.email}`}
+        className={`inline-block mt-3 text-[clamp(22px,3.5vw,32px)] font-semibold text-text no-underline transition-colors duration-200 ${ctaHover}`}
+      >
         {contactCta}
       </a>
     </footer>

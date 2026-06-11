@@ -1,6 +1,5 @@
 import type { PortfolioTheme, PortfolioSection } from '../../types';
 import FilterBar from '../FilterBar';
-import styles from './PortfolioHeader.module.css';
 
 interface PortfolioHeaderProps {
   section: PortfolioSection;
@@ -9,37 +8,35 @@ interface PortfolioHeaderProps {
   onFilterChange: (filter: string) => void;
 }
 
-export default function PortfolioHeader({
-  section,
-  theme,
-  activeFilter,
-  onFilterChange,
-}: PortfolioHeaderProps) {
-  const accentClass = theme === 'frontend' ? styles.frontend : styles.cgi;
+export default function PortfolioHeader({ section, theme, activeFilter, onFilterChange }: PortfolioHeaderProps) {
+  const isFrontend = theme === 'frontend';
+  const accentText = isFrontend ? 'text-frontend' : 'text-cgi';
   const headingLines = section.heading.split('\n');
 
   return (
-    <header className={`${styles.header} ${accentClass}`}>
-      <div className={styles.eyebrow}>
+    <header className="mb-8">
+      <div className={`font-mono text-[11px] tracking-[3px] uppercase ${accentText}`}>
         {section.sectionNumber} — SELECTED WORK
       </div>
 
-      <div className={styles.titleRow}>
-        <h1 className={styles.title}>
-          {headingLines.map((line, index) => (
+      <div className="flex items-end justify-between gap-5 flex-wrap mt-3 max-sm:flex-col max-sm:items-start">
+        <h1 className="m-0 text-[clamp(32px,5vw,52px)] font-bold leading-none tracking-[-0.5px]">
+          {headingLines.map((line, i) => (
             <span key={line}>
               {line}
-              {index < headingLines.length - 1 && <br />}
+              {i < headingLines.length - 1 && <br />}
             </span>
           ))}
         </h1>
-        <div className={styles.meta}>
+        <div className="font-mono text-[11px] tracking-[1.5px] text-text-subtle text-right leading-[1.8] max-sm:text-left">
           <div>{String(section.projectCount).padStart(2, '0')} PROJECTS</div>
           <div>{section.yearRange}</div>
         </div>
       </div>
 
-      <p className={styles.description}>{section.description}</p>
+      <p className="max-w-[520px] mt-4 text-[15px] leading-[1.55] text-text-muted">
+        {section.description}
+      </p>
 
       <FilterBar
         filters={section.filters}

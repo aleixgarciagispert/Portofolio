@@ -1,14 +1,22 @@
 import { Link } from 'react-router-dom';
-import { siteConfig } from '../../data/site';
-import styles from './Logo.module.css';
+import { siteConfig } from '../../data/siteConfig';
 
 export default function Logo() {
   return (
-    <Link to="/" className={styles.logo} aria-label={`${siteConfig.name} — home`}>
-      <span className={styles.mark} aria-hidden="true">
+    <Link
+      to="/"
+      className="group inline-flex items-center gap-3 no-underline text-inherit"
+      aria-label={`${siteConfig.name} — home`}
+    >
+      <span
+        className="flex items-center justify-center w-9 h-9 border border-white/85 rounded-full text-sm font-semibold text-text transition-colors duration-200 group-hover:border-accent"
+        aria-hidden="true"
+      >
         A
       </span>
-      <span className={styles.label}>{siteConfig.brandLabel}</span>
+      <span className="font-mono text-xs font-semibold tracking-[3px] text-accent">
+        {siteConfig.brandLabel}
+      </span>
     </Link>
   );
 }

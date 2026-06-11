@@ -1,4 +1,4 @@
-import { cgiProjects } from '../data/site';
+import { cgiProjects } from '../data/cgiProjects';
 import PortfolioPageLayout from './PortfolioPageLayout';
 
 export default function CgiPortfolioPage() {

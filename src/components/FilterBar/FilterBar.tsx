@@ -1,5 +1,4 @@
 import type { PortfolioTheme } from '../../types';
-import styles from './FilterBar.module.css';
 
 interface FilterBarProps {
   filters: string[];
@@ -8,23 +7,24 @@ interface FilterBarProps {
   theme: PortfolioTheme;
 }
 
-export default function FilterBar({
-  filters,
-  activeFilter,
-  onFilterChange,
-  theme,
-}: FilterBarProps) {
-  const accentClass = theme === 'frontend' ? styles.frontend : styles.cgi;
+export default function FilterBar({ filters, activeFilter, onFilterChange, theme }: FilterBarProps) {
+  const isFrontend = theme === 'frontend';
 
   return (
-    <div className={styles.bar} role="group" aria-label="Project filters">
+    <div className="flex flex-wrap gap-2 mt-6" role="group" aria-label="Project filters">
       {filters.map((filter) => {
         const isActive = activeFilter === filter;
+        const activeClass = isActive
+          ? isFrontend
+            ? 'bg-frontend text-black border-frontend'
+            : 'bg-cgi text-cgi-text-on border-cgi'
+          : 'text-text-muted hover:border-border-strong hover:text-text';
+
         return (
           <button
             key={filter}
             type="button"
-            className={`${styles.button} ${accentClass} ${isActive ? styles.active : ''}`}
+            className={`border border-border cursor-pointer px-3.5 py-2 rounded-sm font-mono text-[10px] tracking-[1px] uppercase bg-transparent transition-all duration-150 ${activeClass}`}
             aria-pressed={isActive}
             onClick={() => onFilterChange(filter)}
           >
