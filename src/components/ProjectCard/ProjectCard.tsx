@@ -24,13 +24,22 @@ export default function ProjectCard({ project, theme }: ProjectCardProps) {
       {/* content sits above the pixel canvas via z-index */}
       <div className="absolute inset-0 z-[2] flex flex-col pointer-events-none">
         {/* cover area */}
-        <div className="relative flex-1 border-b border-border">
-          <span className={`absolute top-3 left-3.5 font-mono text-[10px] font-light tracking-[1.5px] ${numberColor}`}>
+        <div className="relative flex-1 border-b border-border overflow-hidden">
+          {project.coverImage && (
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover opacity-60"
+            />
+          )}
+          <span className={`absolute top-3 left-3.5 font-mono text-[10px] font-light tracking-[1.5px] ${numberColor} z-10`}>
             {project.number}
           </span>
-          <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] font-light tracking-[2px] text-text-dim uppercase">
-            {project.coverLabel ?? 'PROJECT COVER'}
-          </span>
+          {!project.coverImage && (
+            <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] font-light tracking-[2px] text-text-dim uppercase">
+              {project.coverLabel ?? 'PROJECT COVER'}
+            </span>
+          )}
         </div>
 
         {/* text body */}

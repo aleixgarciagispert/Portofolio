@@ -13,6 +13,7 @@
     "cgi:scrape": "tsx scripts/scrapeArtstationProfile.ts"
   },
   "dependencies": {
+    "@anthropic-ai/claude-code": "^2.1.175",
     "gsap": "^3.15.0",
     "ogl": "^1.0.11",
     "react": "^19.1.0",

@@ -38,7 +38,12 @@ export interface Project {
   aspectRatio: string;
   featured?: boolean;
   coverLabel?: string;
+  coverImage?: string;
+  coverVideo?: string;
   link?: string;
+  quotes?: [string, string, string];
+  badge?: string;
+  meta?: string;
 }
 
 export interface PortfolioSection {

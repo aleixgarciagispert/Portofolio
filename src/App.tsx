@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
 import LandingPage from './pages/LandingPage';
 import FrontendPortfolioPage from './pages/FrontendPortfolioPage';
-import CgiPortfolioPage from './pages/CgiPortfolioPage';
+import CgiReelPage from './pages/CgiReelPage';
 
 export default function App() {
   return (
@@ -10,8 +10,8 @@ export default function App() {
       <Route path="/" element={<SiteLayout />}>
         <Route index element={<LandingPage />} />
         <Route path="front-end" element={<FrontendPortfolioPage />} />
-        <Route path="3d-environments" element={<CgiPortfolioPage />} />
       </Route>
+      <Route path="3d-environments" element={<CgiReelPage />} />
     </Routes>
   );
 }
