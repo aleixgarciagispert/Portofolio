@@ -13,7 +13,7 @@ export const cgiProjects: Project[] = [
     aspectRatio: '16 / 9',
     featured: true,
     coverImage: 'https://cdna.artstation.com/p/assets/covers/images/075/175/518/medium/aleix-garcia-gispert-aleix-garcia-gispert-thumbnail01.jpg?1713927413',
-    coverVideo: '/src/videos/Aleix Garcia Gispert ~ Environment Demo Reel 2024.mp4',
+    coverVideo: '/videos/Aleix Garcia Gispert ~ Environment Demo Reel 2024.mp4',
     link: 'https://www.artstation.com/artwork/m8yyye',
     quotes: ['CINEMATIC\nLIGHTING', 'HERO ASSET\nTEXTURING', 'VOLUMETRIC\nFX'],
     badge: 'Think Tank · Vancouver',
