@@ -29,7 +29,7 @@ export default function ProjectCard({ project, theme }: ProjectCardProps) {
             <img
               src={project.coverImage}
               alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           )}
           <span className={`absolute top-3 left-3.5 font-mono text-[10px] font-light tracking-[1.5px] ${numberColor} z-10`}>

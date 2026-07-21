@@ -113,7 +113,7 @@ export default function CgiReelPage() {
       </div>
 
       {/* ── Film grain ── */}
-      <FilmGrain />
+      {/* <FilmGrain /> */}
 
       {/* ── Letterbox bars ── */}
       <div aria-hidden className="fixed top-0 left-0 right-0 z-[70]" style={{ height: '11vh', background: '#000' }} />
@@ -252,13 +252,13 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
               playsInline
               aria-hidden
               className="absolute inset-0 w-full h-full object-cover"
-              style={{ filter: 'brightness(0.62) saturate(0.85)' }}
+              style={{ filter: 'brightness(0.9) saturate(1)' }}
             />
           ) : (
             <div
               aria-hidden
               className="absolute inset-0 overflow-hidden"
-              style={{ filter: 'brightness(0.62) saturate(0.85)' }}
+              style={{ filter: 'brightness(0.9) saturate(1)' }}
             >
               <iframe
                 src={project.coverVideo}
@@ -286,7 +286,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
               alt=""
               aria-hidden
               className="absolute inset-0 w-full h-full object-cover -z-10"
-              style={{ filter: 'brightness(0.62) saturate(0.85)' }}
+              style={{ filter: 'brightness(0.9) saturate(1)' }}
             />
           )}
         </>
@@ -296,7 +296,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
           alt=""
           aria-hidden
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'brightness(0.62) saturate(0.85)' }}
+          style={{ filter: 'brightness(0.9) saturate(1)' }}
         />
       ) : (
         <div className="absolute inset-0 bg-neutral-900" />
@@ -308,18 +308,18 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(105deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.0) 70%)',
+            'linear-gradient(105deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.0) 70%)',
         }}
       />
       {/* bottom strip */}
       <div
         className="absolute bottom-0 left-0 right-0"
-        style={{ height: '55%', background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)' }}
+        style={{ height: '45%', background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%)' }}
       />
       {/* right-side subtle vignette for quotes */}
       <div
         className="absolute top-0 right-0 bottom-0"
-        style={{ width: '35%', background: 'linear-gradient(to left, rgba(0,0,0,0.55) 0%, transparent 100%)' }}
+        style={{ width: '35%', background: 'linear-gradient(to left, rgba(0,0,0,0.3) 0%, transparent 100%)' }}
       />
 
       {/* ── TOP LEFT: year + meta + badge ── */}
