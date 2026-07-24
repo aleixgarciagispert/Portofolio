@@ -13,6 +13,7 @@ export const frontendProjects: Project[] = [
     aspectRatio: '21 / 9',
     featured: true,
     coverLabel: 'PROJECT COVER',
+    coverImage: '/images/previewFullStackRestaurant.png',
     link: 'https://github.com/aleixgarciagispert/Full-stack-restaurant.git',
   },
   {

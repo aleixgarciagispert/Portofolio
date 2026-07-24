@@ -7,7 +7,7 @@ export const portfolioSections: Record<'frontend' | 'cgi', PortfolioSection> = {
     label: 'Front-End Development',
     shortLabel: 'FRONT-END',
     sectionNumber: '01',
-    heading: 'Front-End\nDevelopment',
+    heading: 'Development\nRepositories',
     description:
       'Interfaces, interactive experiences and real-time graphics for the web. Building performant products where engineering meets design.',
     techStack: 'REACT · THREE.JS · TYPESCRIPT · WEBGL',
