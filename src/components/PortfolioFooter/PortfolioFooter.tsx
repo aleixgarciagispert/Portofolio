@@ -1,5 +1,5 @@
 import type { PortfolioTheme } from '../../types';
-import { siteConfig } from '../../data/siteConfig';
+import { siteConfig, gmailComposeUrl } from '../../data/siteConfig';
 
 interface PortfolioFooterProps {
   theme: PortfolioTheme;
@@ -17,7 +17,9 @@ export default function PortfolioFooter({ theme, contactCta }: PortfolioFooterPr
         Get in touch
       </div>
       <a
-        href={`mailto:${siteConfig.email}`}
+        href={gmailComposeUrl(siteConfig.email)}
+        target="_blank"
+        rel="noreferrer noopener"
         className={`inline-block mt-3 text-[clamp(22px,3.5vw,32px)] font-semibold text-text no-underline transition-colors duration-200 ${ctaHover}`}
       >
         {contactCta}

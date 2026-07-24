@@ -4,16 +4,16 @@ export const frontendProjects: Project[] = [
   {
     id: 'fe-01',
     number: '01',
-    title: 'Immersive Web Experience',
+    title: 'Restaurant Administration WebApp',
     description:
-      'Real-time 3D product configurator with custom shaders and post-processing pipeline.',
+      'Full-stack management platform for restaurants: menu, orders and staff handled in one place.',
     year: 2026,
-    tags: ['REACT', 'THREE.JS', 'GLSL'],
-    category: 'WEBGL',
+    tags: ['REACT', 'NODE.JS', 'FULL-STACK'],
+    category: 'WEB APPS',
     aspectRatio: '21 / 9',
     featured: true,
     coverLabel: 'PROJECT COVER',
-    link: '#',
+    link: 'https://github.com/aleixgarciagispert/Full-stack-restaurant.git',
   },
   {
     id: 'fe-02',

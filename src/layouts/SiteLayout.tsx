@@ -1,36 +1,51 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { siteConfig } from '../data/siteConfig';
-import Logo from '../components/Logo';
-import StaggeredMenu from '../components/StaggeredMenu';
+import PillNav from '../components/PillNav';
 import SocialLinks from '../components/SocialLinks';
 import FaultyTerminal from '../components/FaultyTerminal';
 
 export default function SiteLayout() {
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+
+  const pillNavItems = siteConfig.navLinks.map(link => ({
+    label: link.label,
+    href: link.to,
+  }));
+
   return (
     <div className="relative min-h-screen max-w-full overflow-x-hidden bg-bg text-text px-4 py-5 sm:px-6 md:px-10 md:py-8 grid grid-rows-[auto_1fr_auto]">
-      {/* WebGL background */}
-      <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <FaultyTerminal
-          scale={1.8}
-          gridMul={[2, 1]}
-          digitSize={1.2}
-          timeScale={0.25}
-          scanlineIntensity={0.4}
-          glitchAmount={0.4}
-          flickerAmount={0.3}
-          noiseAmp={0.6}
-          curvature={0}
-          tint="#ff003c"
-          mouseReact={false}
-          brightness={0.12}
-        />
-      </div>
+      {!isHome && (
+        <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+          <FaultyTerminal
+            scale={1.8}
+            gridMul={[2, 1]}
+            digitSize={1.2}
+            timeScale={0.25}
+            scanlineIntensity={0.4}
+            glitchAmount={0.4}
+            flickerAmount={0.3}
+            noiseAmp={0.6}
+            curvature={0}
+            tint="#ff003c"
+            mouseReact={false}
+            brightness={0.12}
+          />
+        </div>
+      )}
 
       <header className="relative z-[2] flex items-start justify-between">
-        <Logo />
+        <PillNav
+          logo="/favicon.svg"
+          logoAlt={siteConfig.name}
+          items={pillNavItems}
+          activeHref={pathname}
+          baseColor="#ff003c"
+          pillColor="#0a0a0a"
+          hoveredPillTextColor="#0a0a0a"
+          pillTextColor="#f5f5f5"
+        />
       </header>
-
-      <StaggeredMenu items={siteConfig.navLinks} socialItems={siteConfig.socialLinks} />
 
       <main className="relative z-[1] flex flex-col justify-start min-h-0 py-4">
         <Outlet />
