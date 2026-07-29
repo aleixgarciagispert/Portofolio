@@ -20,8 +20,23 @@ export const cgiProjects: Project[] = [
     meta: 'MENTORSHIP: THINK TANK CENTER · MENTOR: JON CATAPIA',
   },
   {
-    id: 'cgi-02',
+    id: 'cgi-04',
     number: '02',
+    title: 'Mosasaurus\nWater Hunter',
+    description:
+      'Underwater hunting sequence built around a mosasaurus creature. Focused on water treatment and lookdev in Houdini/Karma, cinematic lighting of the underwater volume, and final image composition in Nuke.',
+    year: 2025,
+    tags: ['HOUDINI', 'KARMA', 'NUKE'],
+    category: 'LIGHTING',
+    aspectRatio: '16 / 9',
+    coverVideo: '/videos/mosasaurusWaterHunter.mp4',
+    link: 'https://www.linkedin.com/posts/aleixgarciagispert_wip-the-past-week-my-friendmatteo-ugcPost-7228802327787270144-bvqx/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrV6fsBd04-s6ZGg5GwRCQWbRKcgD-rDcE',
+    quotes: ['WATER\nLOOKDEV', 'CINEMATIC\nLIGHTING', 'NUKE\nCOMPOSITING'],
+    meta: 'WORKFLOW: HOUDINI · KARMA · NUKE',
+  },
+  {
+    id: 'cgi-02',
+    number: '03',
     title: 'Fading Light\nof Autumn',
     description:
       'Houdini-driven outdoor environment with procedural rock modeling, Megascans assets, and SpeedTree foliage converted to USD for colour variation. Lit in Solaris/Karma with noise-generated cloud shapes.',
@@ -37,7 +52,7 @@ export const cgiProjects: Project[] = [
   },
   {
     id: 'cgi-03',
-    number: '03',
+    number: '04',
     title: 'Peaceful\nPort',
     description:
       'Final project for the advanced term at Think Tank Online Course. Full lookdev of a port environment with complex lighting, texturing in Mari and Substance, and compositing in Nuke.',

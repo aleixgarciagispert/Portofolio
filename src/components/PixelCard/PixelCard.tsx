@@ -74,12 +74,13 @@ interface PixelCardProps {
   href?: string;
   target?: string;
   rel?: string;
+  onClick?: () => void;
   children?: React.ReactNode;
 }
 
 export default function PixelCard({
   variant = 'default', gap, speed, colors, noFocus = false,
-  className = '', style, as: Tag = 'div', href, target, rel, children,
+  className = '', style, as: Tag = 'div', href, target, rel, onClick, children,
 }: PixelCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -153,6 +154,7 @@ export default function PixelCard({
     tabIndex: noFocus ? -1 : 0,
   };
   if (href) { props.href = href; props.target = target; props.rel = rel; }
+  if (onClick) { props.onClick = onClick; }
 
   return (
     <Tag {...props}>

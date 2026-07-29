@@ -40,10 +40,13 @@ export interface Project {
   coverLabel?: string;
   coverImage?: string;
   coverVideo?: string;
+  images?: string[];
   link?: string;
   quotes?: [string, string, string];
   badge?: string;
   meta?: string;
+  overview?: string;
+  highlights?: string[];
 }
 
 export interface PortfolioSection {

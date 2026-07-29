@@ -12,7 +12,7 @@ export default function LandingPage() {
         playsInline
         className="fixed inset-0 z-0 w-full h-full object-cover"
       />
-      <div className="fixed inset-0 z-0 bg-black/50" aria-hidden="true" />
+      <div className="fixed inset-0 z-0 bg-black/40" aria-hidden="true" />
     </section>
   );
 }

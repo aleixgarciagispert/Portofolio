@@ -1,24 +1,38 @@
 import PixelCard from '../PixelCard';
 import type { PortfolioTheme, Project } from '../../types';
+import { categoryAccent } from './categoryAccent';
 
 interface ProjectCardProps {
   project: Project;
   theme: PortfolioTheme;
+  onSelect?: (project: Project) => void;
 }
 
-export default function ProjectCard({ project, theme }: ProjectCardProps) {
-  const isFrontend = theme === 'frontend';
-  const hoverBorder = isFrontend ? 'hover:!border-frontend' : 'hover:!border-cgi';
-  const numberColor = isFrontend ? 'text-frontend' : 'text-cgi';
-  const tagsColor = isFrontend ? 'text-frontend' : 'text-cgi';
+export default function ProjectCard({ project, theme, onSelect }: ProjectCardProps) {
+  if (theme === 'frontend') {
+    return <ToolCard project={project} onSelect={onSelect} />;
+  }
+
+  const hoverBorder = 'hover:!border-cgi';
+  const numberColor = 'text-cgi';
+  const tagsColor = 'text-cgi';
+
+  const cardProps = onSelect
+    ? {
+        as: 'button' as const,
+        onClick: () => onSelect(project),
+      }
+    : {
+        as: project.link ? ('a' as const) : ('article' as const),
+        href: project.link,
+        target: project.link ? '_blank' : undefined,
+        rel: project.link ? 'noreferrer noopener' : undefined,
+      };
 
   return (
     <PixelCard
       variant={theme}
-      as={project.link ? 'a' : 'article'}
-      href={project.link}
-      target={project.link ? '_blank' : undefined}
-      rel={project.link ? 'noreferrer noopener' : undefined}
+      {...cardProps}
       className={`${project.featured ? 'col-span-2 max-md:col-span-1' : ''} ${hoverBorder}`}
     >
       {/* content sits above the pixel canvas via z-index */}
@@ -55,5 +69,76 @@ export default function ProjectCard({ project, theme }: ProjectCardProps) {
         </div>
       </div>
     </PixelCard>
+  );
+}
+
+function ToolCard({ project, onSelect }: { project: Project; onSelect?: (project: Project) => void }) {
+  const { gradient, glow } = categoryAccent(project.category);
+  const monogram = project.title.trim().charAt(0).toUpperCase();
+  const className = `group relative aspect-[2/3] w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br ${gradient} p-5 text-left transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frontend [box-shadow:0_40px_50px_-30px_var(--glow),0_70px_60px_-45px_var(--glow),0_0_0_1px_rgba(255,255,255,0.04)_inset] hover:[box-shadow:0_50px_60px_-28px_var(--glow),0_90px_70px_-40px_var(--glow),0_0_0_1px_rgba(255,255,255,0.08)_inset]`;
+  const style = { '--glow': glow } as React.CSSProperties;
+
+  const content = (
+    <>
+      <span
+        aria-hidden="true"
+        className="absolute top-3 right-3 flex h-6 w-6 items-center justify-center rounded-md bg-black/30 font-mono text-[10px] font-medium text-white/70"
+      >
+        {project.number}
+      </span>
+
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="flex items-center gap-2">
+          <span
+            aria-hidden="true"
+            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 font-mono text-[11px] font-medium text-white"
+          >
+            {monogram}
+          </span>
+          <h3 className="m-0 text-[15px] font-medium leading-tight text-white">{project.title}</h3>
+        </div>
+
+        <p className="mt-2 text-[12px] font-light leading-[1.5] text-white/70 line-clamp-3">
+          {project.description}
+        </p>
+
+        <div className="relative mt-auto flex-1 min-h-0">
+          {project.coverImage ? (
+            <img
+              src={project.coverImage}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full rounded-lg object-cover opacity-90 transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+            />
+          ) : (
+            <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
+              <span className="h-16 w-16 rounded-full bg-white/10 blur-[1px] transition-transform duration-300 ease-out group-hover:scale-110" />
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+
+  if (onSelect) {
+    return (
+      <button type="button" className={className} style={style} onClick={() => onSelect(project)}>
+        {content}
+      </button>
+    );
+  }
+
+  if (project.link && project.link !== '#') {
+    return (
+      <a href={project.link} target="_blank" rel="noreferrer noopener" className={className} style={style}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <article className={className} style={style}>
+      {content}
+    </article>
   );
 }

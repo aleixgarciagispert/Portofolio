@@ -11,7 +11,7 @@ export const portfolioSections: Record<'frontend' | 'cgi', PortfolioSection> = {
     description:
       'Interfaces, interactive experiences and real-time graphics for the web. Building performant products where engineering meets design.',
     techStack: 'REACT · THREE.JS · TYPESCRIPT · WEBGL',
-    filters: ['ALL', 'WEB APPS', 'INTERACTIVE', 'WEBGL', 'OPEN SOURCE'],
+    filters: ['ALL', 'WEB APPS', 'Houdini Tools', 'OPEN SOURCE'],
     contactCta: "Let's build something →",
     projectCount: 6,
     yearRange: '2021 — 2026',
