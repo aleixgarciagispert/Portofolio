@@ -95,12 +95,12 @@ export default function CgiReelPage() {
   const totalHeight = slides.length * TRANSITION_PX + window.innerHeight;
 
   return (
-    <div className="bg-black" style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", cursor: 'none' }}>
+    <div className="bg-black sm:cursor-none" style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
       {/* ── Mouse-following scroll cursor ── */}
       <div
         ref={cursorRef}
         aria-hidden
-        className="fixed z-[90] pointer-events-none flex items-center justify-center rounded-full border border-white/30"
+        className="hidden sm:flex fixed z-[90] pointer-events-none items-center justify-center rounded-full border border-white/30"
         style={{
           width: 80,
           height: 80,
@@ -116,20 +116,19 @@ export default function CgiReelPage() {
       {/* <FilmGrain /> */}
 
       {/* ── Letterbox bars ── */}
-      <div aria-hidden className="fixed top-0 left-0 right-0 z-[70]" style={{ height: '11vh', background: '#000' }} />
-      <div aria-hidden className="fixed bottom-0 left-0 right-0 z-[70]" style={{ height: '11vh', background: '#000' }} />
+      <div aria-hidden className="fixed top-0 left-0 right-0 z-[70] h-[7vh] sm:h-[11vh]" style={{ background: '#000' }} />
+      <div aria-hidden className="fixed bottom-0 left-0 right-0 z-[70] h-[7vh] sm:h-[11vh]" style={{ background: '#000' }} />
 
       {/* ── Nav (inside top bar) ── */}
-      <nav className="fixed top-0 left-0 right-0 z-[80] flex items-center justify-between px-8"
-        style={{ height: '11vh' }}>
+      <nav className="fixed top-0 left-0 right-0 z-[80] flex items-center justify-between px-4 sm:px-8 h-[7vh] sm:h-[11vh]">
         <Link
           to="/"
-          className="text-white/40 hover:text-white/90 transition-colors duration-300 text-[9px] tracking-[2.5px] uppercase"
+          className="text-white/40 hover:text-white/90 transition-colors duration-300 text-[8px] sm:text-[9px] tracking-[2px] sm:tracking-[2.5px] uppercase"
         >
           ← Home
         </Link>
-        <span className="text-white/20 text-[8px] tracking-[5px] uppercase">3D · Environments</span>
-        <span className="text-white/25 text-[9px] tracking-[2px]">{cgiProjects.length} works</span>
+        <span className="hidden sm:inline text-white/20 text-[8px] tracking-[5px] uppercase">3D · Environments</span>
+        <span className="text-white/25 text-[8px] sm:text-[9px] tracking-[2px]">{cgiProjects.length} works</span>
       </nav>
 
       {/* ── Scroll container ── */}
@@ -138,10 +137,8 @@ export default function CgiReelPage() {
           <div
             key={slide.id}
             ref={(el) => { slideRefs.current[i] = el; }}
-            className="fixed left-0 right-0"
+            className="fixed left-0 right-0 top-[7vh] bottom-[7vh] sm:top-[11vh] sm:bottom-[11vh]"
             style={{
-              top: '11vh',
-              bottom: '11vh',
               zIndex: i + 1,
             }}
           >
@@ -193,20 +190,20 @@ void FilmGrain;
 // ─────────────────────────────────────────────
 function IntroSlide() {
   return (
-    <div className="slide-inner w-full h-full bg-neutral-950 flex flex-col justify-end pb-12 px-12 relative overflow-hidden">
+    <div className="slide-inner w-full h-full bg-neutral-950 flex flex-col justify-end pb-8 px-5 sm:pb-12 sm:px-12 relative overflow-hidden">
       {/* subtle texture */}
       <div
         className="absolute inset-0 opacity-30"
         style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 80%, rgba(31,224,208,0.04) 0%, transparent 70%)' }}
       />
-      <p className="text-white/20 text-[9px] tracking-[5px] uppercase mb-5">Selected Works · 3D Environments</p>
+      <p className="text-white/20 text-[8px] sm:text-[9px] tracking-[3px] sm:tracking-[5px] uppercase mb-3 sm:mb-5">Selected Works · 3D Environments</p>
       <h1
         className="text-white font-light leading-[1.0] m-0 italic"
-        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(3.5rem, 8vw, 7rem)' }}
+        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(2.6rem, 12vw, 7rem)' }}
       >
         Scroll<br />to begin
       </h1>
-      <div className="mt-10 flex items-center gap-4">
+      <div className="mt-6 sm:mt-10 flex items-center gap-4">
         <div className="w-12 h-px bg-white/15" />
         <span className="text-white/15 text-[8px] tracking-[4px] uppercase">Scroll down</span>
       </div>
@@ -324,15 +321,15 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
       />
 
       {/* ── TOP LEFT: year + meta + badge ── */}
-      <div className="absolute top-6 left-10 flex flex-col gap-2">
-        <span className="text-white/50 text-[11px] tracking-[1px]">{project.year}</span>
+      <div className="absolute top-3 left-4 sm:top-6 sm:left-10 flex flex-col gap-1.5 sm:gap-2 max-w-[60%] sm:max-w-none">
+        <span className="text-white/50 text-[10px] sm:text-[11px] tracking-[1px]">{project.year}</span>
         {project.meta && (
-          <span className="text-white/25 text-[8px] tracking-[2px] uppercase leading-relaxed max-w-[260px]">
+          <span className="hidden sm:inline text-white/25 text-[8px] tracking-[2px] uppercase leading-relaxed max-w-[260px]">
             {project.meta}
           </span>
         )}
         {project.badge && (
-          <div className="mt-1">
+          <div className="hidden sm:block mt-1">
             <LaurelBadge text={project.badge} />
           </div>
         )}
@@ -340,7 +337,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
 
       {/* ── RIGHT: quotes ── */}
       {project.quotes && (
-        <div className="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-0 w-[220px]">
+        <div className="hidden md:flex absolute right-10 top-1/2 -translate-y-1/2 flex-col gap-0 w-[220px]">
           {project.quotes.map((q, qi) => (
             <div key={qi}>
               {qi > 0 && <div className="w-full h-px bg-white/10 my-4" />}
@@ -370,9 +367,9 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
       )}
 
       {/* ── BOTTOM LEFT: title + metadata ── */}
-      <div className="absolute bottom-8 left-10 max-w-[55%]">
+      <div className="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-10 sm:right-auto max-w-full sm:max-w-[55%]">
         {/* counter */}
-        <div className="flex items-center gap-3 mb-5">
+        <div className="flex items-center gap-3 mb-2.5 sm:mb-5">
           <span className="text-[#1fe0d0]/50 text-[8px] tracking-[3px] uppercase">
             {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
           </span>
@@ -384,7 +381,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
           className="m-0 text-white font-light leading-[1.0] italic"
           style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: 'clamp(2.8rem, 5.5vw, 5.5rem)',
+            fontSize: 'clamp(2.2rem, 9vw, 5.5rem)',
             letterSpacing: '-0.01em',
           }}
         >
@@ -397,14 +394,14 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
         </h2>
 
         {/* director / meta row */}
-        <div className="mt-5 flex flex-col gap-1.5">
+        <div className="mt-3 sm:mt-5 flex flex-col gap-1 sm:gap-1.5">
           <div className="flex items-center gap-2">
-            <span className="text-white/30 text-[7.5px] tracking-[2.5px] uppercase">Artist</span>
-            <span className="text-white/50 text-[7.5px] tracking-[1.5px] uppercase">
+            <span className="text-white/30 text-[7px] sm:text-[7.5px] tracking-[2.5px] uppercase">Artist</span>
+            <span className="text-white/50 text-[7px] sm:text-[7.5px] tracking-[1.5px] uppercase">
               Aleix Garcia Gispert
             </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-2">
             <span className="text-white/30 text-[7.5px] tracking-[2.5px] uppercase">Category</span>
             <span className="text-white/50 text-[7.5px] tracking-[1.5px] uppercase">
               {project.category}
@@ -413,8 +410,8 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
         </div>
 
         {/* tags row */}
-        <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1">
-          {project.tags.map((tag) => (
+        <div className="mt-2.5 sm:mt-5 flex flex-wrap gap-x-3 gap-y-1">
+          {project.tags.slice(0, 3).map((tag) => (
             <span key={tag} className="text-[#1fe0d0]/40 text-[7px] tracking-[1.5px] uppercase">
               {tag}
             </span>
@@ -427,7 +424,7 @@ function ProjectSlide({ project, index, total }: ProjectSlideProps) {
             href={project.link}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 mt-6 text-white/20 hover:text-white/70 transition-colors duration-300 text-[8px] tracking-[2px] uppercase"
+            className="inline-flex items-center gap-2 mt-3 sm:mt-6 text-white/20 hover:text-white/70 transition-colors duration-300 text-[8px] tracking-[2px] uppercase"
           >
             <span>View on ArtStation</span>
             <span>↗</span>

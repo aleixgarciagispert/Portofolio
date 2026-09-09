@@ -217,6 +217,7 @@
   color: var(--pill-text, #fff);
   background-color: var(--pill-bg, #fff);
   text-decoration: none;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
   border-radius: 50px;
