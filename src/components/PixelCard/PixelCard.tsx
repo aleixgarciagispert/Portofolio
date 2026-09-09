@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './PixelCard.css';
 
 class Pixel {
@@ -156,10 +156,10 @@ export default function PixelCard({
   if (href) { props.href = href; props.target = target; props.rel = rel; }
   if (onClick) { props.onClick = onClick; }
 
-  return (
-    <Tag {...props}>
-      <canvas className="pixel-canvas" ref={canvasRef} />
-      {children}
-    </Tag>
+  return React.createElement(
+    Tag,
+    props,
+    <canvas className="pixel-canvas" ref={canvasRef} key="canvas" />,
+    children
   );
 }

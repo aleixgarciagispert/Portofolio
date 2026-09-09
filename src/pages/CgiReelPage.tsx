@@ -186,6 +186,7 @@ function FilmGrain() {
     </>
   );
 }
+void FilmGrain;
 
 // ─────────────────────────────────────────────
 //  Intro slide
