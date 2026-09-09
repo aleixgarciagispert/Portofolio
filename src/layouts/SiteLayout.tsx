@@ -27,7 +27,7 @@ export default function SiteLayout() {
             flickerAmount={0.3}
             noiseAmp={0.6}
             curvature={0}
-            tint="#ff003c"
+            tint="#2fa84f"
             mouseReact={false}
             brightness={0.12}
           />
@@ -38,12 +38,9 @@ export default function SiteLayout() {
         <PillNav
           logo="/favicon.svg"
           logoAlt={siteConfig.name}
+          brandLabel={siteConfig.brandLabel}
           items={pillNavItems}
           activeHref={pathname}
-          baseColor="#ff003c"
-          pillColor="#0a0a0a"
-          hoveredPillTextColor="#0a0a0a"
-          pillTextColor="#f5f5f5"
         />
       </header>
 

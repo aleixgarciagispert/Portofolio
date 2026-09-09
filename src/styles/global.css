@@ -18,18 +18,19 @@
   --color-border-strong: rgba(255, 255, 255, 0.2);
 
   /* accents */
-  --color-accent:        #ff003c;
-  --color-frontend:      #ff003c;
-  --color-frontend-glow: rgba(255, 0, 60, 0.35);
-  --color-frontend-bg:   rgba(255, 0, 60, 0.08);
+  --color-accent:         #2FA84F;
+  --color-accent-strong:  #45C464;
+  --color-frontend:       #2FA84F;
+  --color-frontend-glow:  rgba(47, 168, 79, 0.35);
+  --color-frontend-bg:    rgba(47, 168, 79, 0.08);
   --color-cgi:           #1fe0d0;
   --color-cgi-glow:      rgba(31, 224, 208, 0.35);
   --color-cgi-bg:        rgba(31, 224, 208, 0.08);
   --color-cgi-text-on:   #06201e;
 
   /* fonts */
-  --font-sans: 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Inter', system-ui, sans-serif;
 
   /* layout */
   --max-width: 960px;
@@ -70,7 +71,7 @@ button {
 }
 
 ::selection {
-  background: rgba(255, 0, 60, 0.25);
+  background: rgba(47, 168, 79, 0.25);
 }
 
 .theme-cgi ::selection {

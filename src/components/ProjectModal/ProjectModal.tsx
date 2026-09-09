@@ -52,7 +52,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={requestClose}
     >
       <div
-        className={`relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-lg border border-border bg-bg-elevated shadow-2xl transition-all duration-200 ease-out ${
+        className={`relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-md border border-border bg-bg-elevated shadow-2xl transition-all duration-200 ease-out ${
           isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-2'
         }`}
         onClick={(event) => event.stopPropagation()}
@@ -61,7 +61,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           type="button"
           onClick={requestClose}
           aria-label="Close"
-          className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white/90 hover:text-white hover:bg-black/70 transition-colors"
+          className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-[6px] bg-black/50 text-white/90 hover:text-white hover:bg-black/70 transition-colors"
         >
           <span aria-hidden="true" className="text-lg leading-none">
             &times;

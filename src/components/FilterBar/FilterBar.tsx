@@ -24,7 +24,7 @@ export default function FilterBar({ filters, activeFilter, onFilterChange, theme
           <button
             key={filter}
             type="button"
-            className={`border border-border cursor-pointer px-3.5 py-2 rounded-sm font-mono text-[10px] tracking-[1px] uppercase bg-transparent transition-all duration-150 ${activeClass}`}
+            className={`border border-border cursor-pointer px-3.5 py-2 rounded-none font-mono text-[10px] tracking-[1px] uppercase bg-transparent transition-all duration-150 ${activeClass}`}
             aria-pressed={isActive}
             onClick={() => onFilterChange(filter)}
           >

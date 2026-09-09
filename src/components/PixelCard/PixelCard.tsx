@@ -57,7 +57,7 @@ function effectiveSpeed(value: number, reduced: boolean) {
 }
 
 const VARIANTS: Record<string, { gap: number; speed: number; colors: string }> = {
-  frontend: { gap: 7,  speed: 35, colors: '#ff003c,#cc002e,#4d0012' },
+  frontend: { gap: 7,  speed: 35, colors: '#2FA84F,#1F7A38,#0D3618' },
   cgi:      { gap: 7,  speed: 30, colors: '#1fe0d0,#0fb8aa,#064d47' },
   default:  { gap: 8,  speed: 25, colors: '#333333,#1f1f1f,#111111' },
 };

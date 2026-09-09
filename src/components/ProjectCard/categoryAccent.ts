@@ -6,14 +6,14 @@ interface Accent {
 }
 
 const CATEGORY_ACCENTS: Record<string, Accent> = {
-  'WEB APPS': { gradient: 'from-[#3a0d12] via-[#7a1420] to-[#2a0a0d]', glow: 'rgba(255,45,60,0.45)' },
+  'WEB APPS': { gradient: 'from-[#0f2a1b] via-[#1e5c38] to-[#0a1f14]', glow: 'rgba(58,178,110,0.45)' },
   'Houdini Tools': { gradient: 'from-[#0d2a14] via-[#12401b] to-[#081d0e]', glow: 'rgba(60,220,120,0.4)' },
   'OPEN SOURCE': { gradient: 'from-[#241a3a] via-[#3d2a63] to-[#160f26]', glow: 'rgba(150,90,255,0.4)' },
   INTERACTIVE: { gradient: 'from-[#2a1a3a] via-[#4a2a63] to-[#1a1026]', glow: 'rgba(190,110,255,0.4)' },
 };
 
 const FALLBACK_ACCENTS: Accent[] = [
-  { gradient: 'from-[#3a0d12] via-[#7a1420] to-[#2a0a0d]', glow: 'rgba(255,45,60,0.45)' },
+  { gradient: 'from-[#0f2a1b] via-[#1e5c38] to-[#0a1f14]', glow: 'rgba(58,178,110,0.45)' },
   { gradient: 'from-[#0d2a14] via-[#12401b] to-[#081d0e]', glow: 'rgba(60,220,120,0.4)' },
   { gradient: 'from-[#241a3a] via-[#3d2a63] to-[#160f26]', glow: 'rgba(150,90,255,0.4)' },
   { gradient: 'from-[#1a1a1a] via-[#2b2b2b] to-[#0d0d0d]', glow: 'rgba(255,255,255,0.18)' },

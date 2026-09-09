@@ -75,47 +75,60 @@ export default function ProjectCard({ project, theme, onSelect }: ProjectCardPro
 function ToolCard({ project, onSelect }: { project: Project; onSelect?: (project: Project) => void }) {
   const { gradient, glow } = categoryAccent(project.category);
   const monogram = project.title.trim().charAt(0).toUpperCase();
-  const className = `group relative flex aspect-[2/3] w-full flex-col overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br ${gradient} text-left transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frontend [box-shadow:0_0_50px_-10px_var(--glow),0_0_100px_-20px_var(--glow),0_0_0_1px_rgba(255,255,255,0.04)_inset] hover:[box-shadow:0_0_65px_-8px_var(--glow),0_0_130px_-15px_var(--glow),0_0_0_1px_rgba(255,255,255,0.08)_inset]`;
+  const className = `group relative flex aspect-[4/3] w-full flex-col overflow-hidden rounded-[16px] border border-white/10 bg-gradient-to-br ${gradient} text-left transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frontend [box-shadow:0_0_50px_-10px_var(--glow),0_0_100px_-20px_var(--glow),0_0_0_1px_rgba(255,255,255,0.04)_inset] hover:[box-shadow:0_0_65px_-8px_var(--glow),0_0_130px_-15px_var(--glow),0_0_0_1px_rgba(255,255,255,0.08)_inset]`;
   const style = { '--glow': glow } as React.CSSProperties;
 
   const content = (
     <>
+      {/* soft ambient glow, sits behind everything */}
       <span
         aria-hidden="true"
-        className="absolute top-4 right-4 z-20 flex h-6 w-6 items-center justify-center rounded-md bg-black/30 font-mono text-[10px] font-medium text-white/70"
+        className="pointer-events-none absolute -top-8 left-8 h-24 w-24 rounded-full opacity-70 blur-3xl"
+        style={{ background: glow }}
+      />
+
+      <span
+        aria-hidden="true"
+        className="absolute top-4 right-4 z-20 flex h-6 w-6 items-center justify-center rounded-[4px] bg-black/30 font-mono text-[10px] font-medium text-white/70"
       >
         {project.number}
       </span>
 
+      {/* title block, pinned to the top */}
+      <div className="relative z-10 shrink-0 px-4 pt-4">
+        <div className="flex items-start gap-2">
+          <span
+            aria-hidden="true"
+            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-[6px] bg-white/10 font-mono text-[11px] font-semibold text-white"
+          >
+            {monogram}
+          </span>
+          <h3 className="m-0 text-[14px] font-medium leading-snug text-white">{project.title}</h3>
+        </div>
+
+        <p className="mt-1.5 text-[11px] font-light leading-[1.45] text-white/65 line-clamp-2">
+          {project.description}
+        </p>
+      </div>
+
+      {/* oversized visual, bleeding off the bottom edge */}
       <div className="relative flex-1 min-h-0">
         {project.coverImage ? (
           <img
             src={project.coverImage}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+            className="absolute -bottom-3 left-1/2 h-[112%] w-[112%] -translate-x-1/2 object-cover opacity-90 transition-transform duration-500 ease-out group-hover:scale-[1.05]"
           />
         ) : (
-          <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
-            <span className="h-16 w-16 rounded-full bg-white/10 blur-[1px] transition-transform duration-300 ease-out group-hover:scale-110" />
-          </div>
-        )}
-      </div>
-
-      <div className="relative z-10 shrink-0 p-5">
-        <div className="flex items-center gap-2">
           <span
             aria-hidden="true"
-            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 font-mono text-[11px] font-medium text-white"
+            className="pointer-events-none absolute -bottom-6 -right-2 select-none font-sans text-[100px] font-bold leading-none transition-transform duration-500 ease-out group-hover:scale-105"
+            style={{ color: glow }}
           >
             {monogram}
           </span>
-          <h3 className="m-0 text-[15px] font-medium leading-tight text-white">{project.title}</h3>
-        </div>
-
-        <p className="mt-2 text-[12px] font-light leading-[1.5] text-white/70 line-clamp-3">
-          {project.description}
-        </p>
+        )}
       </div>
     </>
   );

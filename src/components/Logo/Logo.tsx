@@ -9,7 +9,7 @@ export default function Logo() {
       aria-label={`${siteConfig.name} — home`}
     >
       <span
-        className="flex items-center justify-center w-9 h-9 border border-white/85 rounded-full text-sm font-semibold text-text transition-colors duration-200 group-hover:border-accent"
+        className="flex items-center justify-center w-9 h-9 border border-white/85 rounded-[6px] text-sm font-semibold text-text transition-colors duration-200 group-hover:border-accent"
         aria-hidden="true"
       >
         A
