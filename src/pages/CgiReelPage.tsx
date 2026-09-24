@@ -95,7 +95,7 @@ export default function CgiReelPage() {
   const totalHeight = slides.length * TRANSITION_PX + window.innerHeight;
 
   return (
-    <div className="bg-black sm:cursor-none" style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace" }}>
+    <div className="bg-black sm:cursor-none" style={{ fontFamily: "var(--font-mono)" }}>
       {/* ── Mouse-following scroll cursor ── */}
       <div
         ref={cursorRef}

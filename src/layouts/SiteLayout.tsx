@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { siteConfig } from '../data/siteConfig';
-import PillNav from '../components/PillNav';
+import SiteHeader from '../components/SiteHeader';
 import SocialLinks from '../components/SocialLinks';
 import FaultyTerminal from '../components/FaultyTerminal';
 
@@ -8,7 +8,7 @@ export default function SiteLayout() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
-  const pillNavItems = siteConfig.navLinks.map(link => ({
+  const navItems = siteConfig.navLinks.map(link => ({
     label: link.label,
     href: link.to,
   }));
@@ -34,17 +34,14 @@ export default function SiteLayout() {
         </div>
       )}
 
-      <header className="relative z-[2] flex items-start justify-between">
-        <PillNav
-          logo="/favicon.svg"
-          logoAlt={siteConfig.name}
-          brandLabel={siteConfig.brandLabel}
-          items={pillNavItems}
-          activeHref={pathname}
-        />
-      </header>
+      <SiteHeader
+        name={siteConfig.name}
+        tagline="creative"
+        items={navItems}
+        activeHref={pathname}
+      />
 
-      <main className="relative z-[1] flex flex-col justify-start min-h-0 py-4">
+      <main className="relative z-[1] flex flex-col justify-start min-h-0 pt-16 pb-4 md:pt-20">
         <Outlet />
       </main>
 

@@ -1,0 +1,189 @@
+/* Header inspired by jasonbergh.com: minimal, mono, numbered links, lemon accent */
+.sh {
+  --sh-lemon: #ffeec8;
+  --sh-muted: rgba(255, 251, 242, 0.7);
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  pointer-events: none;
+  padding: clamp(16px, 1.4vw, 28px) clamp(16px, 1.4vw, 28px) 0;
+}
+
+.sh-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sh-logo,
+.sh-link,
+.sh-menu-btn {
+  pointer-events: auto;
+}
+
+.sh-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--sh-lemon);
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.sh-logo-name {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 1.7vw, 32px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.sh-logo-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: rgba(255, 238, 200, 0.6);
+}
+
+.sh-dot {
+  width: 5px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--sh-lemon);
+  flex: 0 0 auto;
+}
+
+.sh-menu-btn {
+  display: none;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--sh-muted);
+}
+
+.sh-grid {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, auto);
+  gap: 6px clamp(40px, 6vw, 120px);
+  place-items: center start;
+}
+
+.sh-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sh-muted);
+  transition: color 0.3s;
+}
+
+.sh-link .sh-dot {
+  width: 4px;
+  margin-left: -10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sh-link:hover,
+.sh-link.is-active {
+  color: var(--sh-lemon);
+}
+
+.sh-link.is-active .sh-dot {
+  opacity: 1;
+}
+
+/* Text roll on hover */
+.sh-roll {
+  display: block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.sh-roll-line {
+  display: block;
+  height: 1em;
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.sh-link:hover .sh-roll-line,
+.sh-link:focus-visible .sh-roll-line {
+  transform: translateY(-100%);
+}
+
+.sh-link:focus-visible,
+.sh-logo:focus-visible,
+.sh-menu-btn:focus-visible {
+  outline: 1px solid var(--sh-lemon);
+  outline-offset: 4px;
+}
+
+@media (max-width: 991px) {
+  .sh-menu-btn {
+    display: block;
+  }
+
+  .sh-menu {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    background: #1e1e1c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  .sh-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .sh-grid {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    gap: 28px;
+    place-items: center;
+  }
+
+  .sh-link {
+    font-size: 20px;
+  }
+
+  .sh-link .sh-dot {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sh-roll-line,
+  .sh-link,
+  .sh-menu {
+    transition: none;
+  }
+}
